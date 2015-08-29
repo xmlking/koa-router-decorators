@@ -2,9 +2,8 @@
 
 ### Project ###
 NOTES.md
-config/local.yml
-.ssh
-
+# Compiled library
+lib/
 
 ### Node ###
 # Logs

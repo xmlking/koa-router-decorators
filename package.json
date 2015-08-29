@@ -2,10 +2,11 @@
   "name": "koa-router-decorators",
   "version": "0.0.1",
   "description": "ES7 decorators for koa-router",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "compile": "babel src --out-dir dist",
-    "test": "karma test"
+    "build": "babel src -d lib -b regenerator",
+    "prepublish": "npm run build",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,11 @@
 
   },
   "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5",
+    "sinon": "^1.10.3",
+    "sinon-chai": "^2.8.0",
+    "babel-core": "^5.8.21",
     "babel-plugin-typecheck": "^1.2.0"
   }
 }
