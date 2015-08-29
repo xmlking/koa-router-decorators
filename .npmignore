@@ -1,4 +1,4 @@
-src/
+.idea/
 test/
 .babelrc
 .editorconfig
