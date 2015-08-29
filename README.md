@@ -16,6 +16,40 @@ To use it you should enable experimental `es7.decorators` feature in babel as de
 Example:
 
 ```js
+import {route, HttpMethod} from 'koa-router-decorators';
+import User from '../models/User'
+
+@route('/users')
+export default class UserController {
+
+  router:Router;
+
+  constructor() {
+    return this.router.routes();
+  }
+  
+  @route('/', HttpMethod.GET)
+  static *index(next) {
+    let query = User.find().skip(0).limit(20);
+    let users = yield query.exec();
+    let count = yield User.count();
+    this.body = {users, count};
+  }
+
+  @route('/', HttpMethod.POST)
+  static *create(next) {
+    let newUser =  new User(this.request.body);
+    let result;
+    try {
+      result = yield newUser.save();
+    } catch (err) {
+      this.throw( 'DB Error: Unable to same', 500);
+    }
+
+    this.status = 201;
+    this.body = result
+  }
+}
 
 ```
 
