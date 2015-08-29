@@ -24,7 +24,7 @@
     "url": "https://github.com/xmlking/koa-router-decorators/issues"
   },
   "homepage": "https://github.com/xmlking/koa-router-decorators#readme",
-  "dependencies": {
+  "peerDependencies": {
     "koa-router": "^5.1.2"
 
   },
