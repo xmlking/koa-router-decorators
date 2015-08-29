@@ -54,6 +54,26 @@ export default class UserController {
 ```
 
 
+```js
+import koa from 'koa';
+import Router from 'koa-router';
+import bodyParser from'koa-bodyparser';
+import UserController from  './controllers/UserController';
+
+rootRouter = new Router({
+  prefix: '/api'
+});
+
+app = koa();
+app.use(bodyParser());
+app.use(new AuthController());
+rootRouter.use('/v1', new UserController());
+app
+  .use(rootRouter.routes())
+  .use(rootRouter.allowedMethods());
+app.listen(3000);
+```
+
 ### Development 
 
 You need babel installed globally 
