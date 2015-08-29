@@ -43,7 +43,7 @@ export default class UserController {
     try {
       result = yield newUser.save();
     } catch (err) {
-      this.throw( 'DB Error: Unable to same', 500);
+      this.throw( 'DB Error: Unable to save', 500);
     }
 
     this.status = 201;
