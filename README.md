@@ -53,6 +53,7 @@ export default class UserController {
 
 ```
 
+**Annotated routes are added at the end. may overwrite manual added routes if path/method matches.** 
 
 ```js
 import koa from 'koa';

@@ -35,25 +35,25 @@ export function route(path: string, method : string = HttpMethod.GET) {
       }
       switch(method) {
         case HttpMethod.HEAD:
-          target.prototype.router.head('/', descriptor.value);
+          target.prototype.router.head(path, descriptor.value);
           break;
         case HttpMethod.OPTIONS:
-          target.prototype.router.options('/', descriptor.value);
+          target.prototype.router.options(path, descriptor.value);
           break;
         case HttpMethod.GET:
-          target.prototype.router.get('/', descriptor.value);
+          target.prototype.router.get(path, descriptor.value);
           break;
         case HttpMethod.PUT:
-          target.prototype.router.put('/', descriptor.value);
+          target.prototype.router.put(path, descriptor.value);
           break;
         case HttpMethod.PATCH:
-          target.prototype.router.patch('/', descriptor.value);
+          target.prototype.router.patch(path, descriptor.value);
           break;
         case HttpMethod.POST:
-          target.prototype.router.post('/', descriptor.value);
+          target.prototype.router.post(path, descriptor.value);
           break;
-        case HttpMethod.DELET:
-          target.prototype.router.delete('/', descriptor.value);
+        case HttpMethod.DELETE:
+          target.prototype.router.delete(path, descriptor.value);
           break;
         default:
           throw new Error('@route decorator "method" is not valid');
