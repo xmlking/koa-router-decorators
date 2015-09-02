@@ -13,8 +13,7 @@ export class HttpMethod {
 
 
 // decorator factory
-//export function route(path:string, method:string, ...middleware:Array<Function>) {
-export function route(path:string, method:string, ...middleware) {
+export function route(path:string, method:string, ...middleware:Array<Function>) {
 
   return (target, key, descriptor)  => {
 
