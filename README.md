@@ -19,7 +19,7 @@ To use it you should enable experimental `es7.decorators` feature in babel as de
 ```
 See [trust-broker](https://github.com/xmlking/trust-broker) for more examples  
 
-### Example:
+### Example
 
 ```js
 import {route, HttpMethod} from 'koa-router-decorators';
@@ -57,7 +57,7 @@ export default class UserController {
   }
 }
 
-unction *isAdmin(next) {
+function *isAdmin(next) {
   if (!this.state.user.roles.includes('admin')) {
     throw new AuthorizationError(AuthorizationError.code.FORBIDDEN, {message: 'insufficient role (admin only)'});
   }
@@ -65,7 +65,7 @@ unction *isAdmin(next) {
 }
 ```
 
-**Annotated routes are added at the end. may overwrite manual added routes if path/method matches.** 
+**Annotated routes are applied at the end. may overwrite manual added routes if path/method matches.** 
 
 ```js
 import koa from 'koa';
