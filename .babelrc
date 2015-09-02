@@ -1,5 +1,4 @@
 {
 	"stage": 0,
-	sourceMaps: true,
-	"plugins": ["typecheck"]
+	sourceMaps: true
 }
