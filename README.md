@@ -13,7 +13,13 @@ $ npm i koa-router-decorators --save
 This library supports [ES7 decorators proposal][decorators-url] which is supported by babel. 
 To use it you should enable experimental `es7.decorators` feature in babel as described [here][babel-experimental-url].
 
-Example:
+```
+ @route(path, HttpMethod, ...middleware)
+ optional middlewares are before the target method. 
+```
+See [trust-broker](https://github.com/xmlking/trust-broker) for more examples  
+
+### Example:
 
 ```js
 import {route, HttpMethod} from 'koa-router-decorators';
@@ -28,7 +34,7 @@ export default class UserController {
     return this.router.routes();
   }
   
-  @route('/', HttpMethod.GET)
+  @route('/', HttpMethod.GET, isAdmin)
   static *index(next) {
     let query = User.find().skip(0).limit(20);
     let users = yield query.exec();
@@ -51,6 +57,12 @@ export default class UserController {
   }
 }
 
+unction *isAdmin(next) {
+  if (!this.state.user.roles.includes('admin')) {
+    throw new AuthorizationError(AuthorizationError.code.FORBIDDEN, {message: 'insufficient role (admin only)'});
+  }
+  yield next;
+}
 ```
 
 **Annotated routes are added at the end. may overwrite manual added routes if path/method matches.** 
