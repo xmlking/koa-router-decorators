@@ -7,6 +7,7 @@ lib/
 
 ## TSD/Typings
 typings
+!typings/koa-router.d.ts
 
 ### Node ###
 # Logs
