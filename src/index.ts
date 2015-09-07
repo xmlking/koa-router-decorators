@@ -1,21 +1,20 @@
-/* @flow */
-import Router from 'koa-router'
+// import Router from 'koa-router';
+import Router = require('koa-router');
 
-export class HttpMethod {
-  static HEAD = 'HEAD';
-  static OPTIONS = 'OPTIONS';
-  static GET = 'GET';
-  static PUT = 'PUT';
-  static PATCH = 'PATCH';
-  static POST = 'POST';
-  static DELETE = 'DELETE';
+export enum HttpMethod {
+  HEAD,
+  OPTIONS,
+  GET,
+  PUT,
+  PATCH,
+  POST,
+  DELETE
 }
 
-
 // decorator factory
-export function route(path:string, method:string, ...middleware:Array<Function>) {
+export function route(path: string, method?: HttpMethod, ...middleware: Array<Function> ) {
 
-  return (target, key, descriptor)  => {
+  return (target: Function, key: string | symbol, descriptor: any)  => {
 
     if (!path) {
       throw TypeError('@route should have at least "path" argument');
@@ -35,7 +34,7 @@ export function route(path:string, method:string, ...middleware:Array<Function>)
       return;
     }
 
-    //on methods
+    // on methods
     if (!method) {
       throw TypeError('@route on method should have "method" as second argument');
     }
@@ -66,5 +65,5 @@ export function route(path:string, method:string, ...middleware:Array<Function>)
         throw new TypeError('@route decorator "method" is not valid');
     }
 
-  }
+  };
 }

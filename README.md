@@ -91,7 +91,8 @@ app.listen(3000);
 
 You need babel installed globally 
 ```bash
-npm install -g babel
+npm install -g typescript@next
+npm install -g tslint
 ```
  
  to publish to npm registry 
@@ -99,6 +100,9 @@ npm install -g babel
  npm publish
  ```
  
+### TODO
+* remove  typescript -> definition in package.json 
+
 
 [babel-url]: http://babeljs.io/
 [decorators-url]: https://github.com/wycats/javascript-decorators

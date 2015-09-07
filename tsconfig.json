@@ -1,0 +1,31 @@
+{
+  "version": "1.6.0",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "CommonJs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "listFiles": true,
+    "newLine": "LF",
+    "outDir": "lib"
+  },
+  "filesGlob": [
+    "src/**/*.ts",
+    "!node_modules/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "typings/tsd.d.ts",
+    "typings/typescriptApp.d.ts",
+    "src/index.ts"
+  ]
+}

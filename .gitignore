@@ -5,6 +5,9 @@ NOTES.md
 # Compiled library
 lib/
 
+## TSD/Typings
+typings
+
 ### Node ###
 # Logs
 logs

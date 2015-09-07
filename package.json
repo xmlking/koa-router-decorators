@@ -3,6 +3,10 @@
   "version": "0.3.2",
   "description": "ES7 decorators for koa-router",
   "main": "index.js",
+  "typings": "lib/index.d.ts",
+  "typescript": {
+    "definition": "lib/index.d.ts"
+  },
   "scripts": {
     "build": "babel src -d lib -b regenerator",
     "prepublish": "npm run build",
@@ -33,8 +37,6 @@
     "chai": "^3.2.0",
     "mocha": "^2.2.5",
     "sinon": "^1.10.3",
-    "sinon-chai": "^2.8.0",
-    "babel-core": "^5.8.21",
-    "babel-plugin-typecheck": "^1.2.0"
+    "sinon-chai": "^2.8.0"
   }
 }
