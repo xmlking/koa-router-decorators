@@ -17,7 +17,7 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
 
   return (target: Function, key: string | symbol, descriptor: any)  => {
 
-    utils.assert(!path, '@route should have at least "path" argument' );
+    utils.assert(!!path, '@route should have at least "path" argument' );
 
     if (!target.prototype.router) {
       target.prototype.router = new Router();
@@ -34,7 +34,7 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
     }
 
     // on methods
-    utils.assert(!method, '@route on method should have "method" as second argument' );
+    utils.assert(!!method, '@route on method should have "method" as second argument' );
 
     switch (method) {
       case HttpMethod.HEAD:
