@@ -1,3 +1,4 @@
+import * as utils from './utils';
 // import Router from 'koa-router';
 import Router = require('koa-router'); // FIXME: we still need old syntax for loading ES5 modules
 
@@ -16,9 +17,7 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
 
   return (target: Function, key: string | symbol, descriptor: any)  => {
 
-    if (!path) {
-      throw TypeError('@route should have at least "path" argument');
-    }
+    utils.assert(!path, '@route should have at least "path" argument' );
 
     if (!target.prototype.router) {
       target.prototype.router = new Router();
@@ -26,7 +25,7 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
 
     // on class
     if (target && !key && !descriptor) {
-      if (method)  throw TypeError('@route on class should not have "method"');
+      utils.assert(!method, '@route on class should not have "method"' );
       target.prototype.router.prefix(path);
       if (middleware.length > 0) {
         target.prototype.router.use(...middleware);
@@ -35,9 +34,7 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
     }
 
     // on methods
-    if (!method) {
-      throw TypeError('@route on method should have "method" as second argument');
-    }
+    utils.assert(!method, '@route on method should have "method" as second argument' );
 
     switch (method) {
       case HttpMethod.HEAD:
@@ -62,7 +59,7 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
         target.prototype.router.delete(path, ...middleware, descriptor.value);
         break;
       default:
-        throw new TypeError('@route decorator "method" is not valid');
+        throw new Error('@route decorator "method" is not valid');
     }
 
   };
