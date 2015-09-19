@@ -1,5 +1,5 @@
 // import Router from 'koa-router';
-import Router = require('koa-router');
+import Router = require('koa-router'); // FIXME: we still need old syntax for loading ES5 modules
 
 export enum HttpMethod {
   HEAD,

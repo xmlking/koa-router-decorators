@@ -1,6 +1,6 @@
 {
   "name": "koa-router-decorators",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "ES7 decorators for koa-router",
   "main": "index.js",
   "typings": "lib/index.d.ts",
@@ -8,7 +8,7 @@
     "definition": "lib/index.d.ts"
   },
   "scripts": {
-    "build": "babel src -d lib -b regenerator",
+    "build": "tsc",
     "prepublish": "npm run build",
     "test": "mocha"
   },
@@ -31,11 +31,10 @@
   "homepage": "https://github.com/xmlking/koa-router-decorators#readme",
   "peerDependencies": {
     "koa-router": "^5.1.2"
-
   },
   "devDependencies": {
     "chai": "^3.2.0",
-    "mocha": "^2.2.5",
+    "mocha": "^2.3.2",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.8.0"
   }

@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.2",
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",
@@ -14,12 +14,9 @@
     "sourceMap": true,
     "listFiles": true,
     "newLine": "LF",
+    "rootDir": "src",
     "outDir": "lib"
   },
-  "filesGlob": [
-    "src/**/*.ts",
-    "!node_modules/**/*.ts"
-  ],
   "exclude": [
     "node_modules"
   ],
