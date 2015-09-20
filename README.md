@@ -10,12 +10,13 @@ $ npm i koa-router-decorators --save
 
 ## Usage
 
-This library supports [ES7 decorators proposal][decorators-url] which is supported by babel. 
-To use it you should enable experimental `es7.decorators` feature in babel as described [here][babel-experimental-url].
+This library supports [ES7 decorators proposal][decorators-url] which is supported by babel and typescripts. 
+To use it with babel you should enable experimental `es7.decorators` feature in babel as described [here][babel-experimental-url].
+To use it with typescripts you should enable `experimentalDecorators` and `emitDecoratorMetadata` in `tsconfig.json`
 
 ```
  @route(path, HttpMethod, ...middleware)
- optional middlewares are before the target method. 
+ optional middlewares are added before the target method. 
 ```
 See [trust-broker](https://github.com/xmlking/trust-broker) for more examples  
 
@@ -89,20 +90,20 @@ app.listen(3000);
 
 ### Development 
 
-You need babel installed globally 
+You need typescript installed globally
 ```bash
-npm install -g typescript@next
+npm install -g typescript
 npm install -g tslint
 ```
- 
+build
+```bash
+npm run build  # or just `tsc`
+```
  to publish to npm registry 
  ```bash
  npm publish
  ```
  
-### TODO
-* remove  typescript -> definition in package.json 
-
 
 [babel-url]: http://babeljs.io/
 [decorators-url]: https://github.com/wycats/javascript-decorators
