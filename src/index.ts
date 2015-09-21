@@ -15,7 +15,7 @@ export enum HttpMethod {
 // decorator factory
 export function route(path: string, method?: HttpMethod, ...middleware: Array<Function> ) {
 
-  return (target: Function, key: string | symbol, descriptor: any)  => {
+  return (target: Function, key?: string | symbol, descriptor?: any) : void => {
 
     utils.assert(!!path, '@route should have at least "path" argument' );
 
@@ -23,9 +23,9 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
       target.prototype.router = new Router();
     }
 
-    // on class
-    if (target && !key && !descriptor) {
-      utils.assert(!method, '@route on class should not have "method"' );
+    // Decorator applied to Class (for Constructor injection).
+    if (typeof target === 'function' && key === undefined  && descriptor === undefined) {
+      utils.assert(!method, '@route on Type should not have "method"' );
       target.prototype.router.prefix(path);
       if (middleware.length > 0) {
         target.prototype.router.use(...middleware);
@@ -33,7 +33,7 @@ export function route(path: string, method?: HttpMethod, ...middleware: Array<Fu
       return;
     }
 
-    // on methods
+    // // Decorator applied to member (method or property).
     utils.assert(!!method, '@route on method should have "method" as second argument' );
 
     switch (method) {

@@ -4,10 +4,12 @@
 NOTES.md
 # Compiled library
 lib/
+.tmp/
 
 ## TSD/Typings
 typings
-!typings/koa-router/koa-router.d.ts
+!typings/koa-router
+!typings/typescriptApp.d.ts
 
 
 ### Node ###

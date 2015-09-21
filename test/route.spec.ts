@@ -1,15 +1,15 @@
-import expect from  './test-helper';
-import Router from 'koa-router';
-import sinon from 'sinon';
-import {HttpMethod, route} from '../src/';
+import expect from  './masala-chai';
+// import Router from 'koa-router';
+import Router = require('koa-router');
+import {HttpMethod, route} from '../src/index';
 
 describe('route decorator', () => {
   beforeEach(() => {
 
   });
 
-  it('on class should product an object with appropriate router', () => {
-    @route('/usrs')
+  it('on class should produce an object with appropriate router', () => {
+    @route('/users')
     class UserController {
       router: Router;
       constructor() {
@@ -22,7 +22,7 @@ describe('route decorator', () => {
     expect(UserController).itself.to.respondTo('foo');
   });
 
-  it('on method should product an object with appropriate router', () => {
+  it('on method should produce an object with appropriate router', () => {
     @route('/users')
     class UserController {
       router: Router;
@@ -32,8 +32,8 @@ describe('route decorator', () => {
       static *foo() {}
     }
     let userCtrl = new UserController();
-    expect(userCtrl.router).to.have.deep.property('stack[0].path','/users/');
-    expect(UserController).itself.to.respondTo('foo')
+    expect(userCtrl.router).to.have.deep.property('stack[0].path', '/users/' );
+    expect(UserController).itself.to.respondTo('foo');
   });
 
 });

@@ -10,7 +10,7 @@ $ npm i koa-router-decorators --save
 
 ## Usage
 
-This library supports [ES7 decorators proposal][decorators-url] which is supported by babel and typescripts. 
+This library supports [ES7 decorators proposal][decorators-url] which is supported by babel and typescript. 
 To use it with babel you should enable experimental `es7.decorators` feature in babel as described [here][babel-experimental-url].
 To use it with typescripts you should enable `experimentalDecorators` and `emitDecoratorMetadata` in `tsconfig.json`
 
@@ -95,11 +95,18 @@ You need typescript installed globally
 npm install -g typescript
 npm install -g tslint
 ```
+
 build
 ```bash
-npm run build  # or just `tsc`
+npm run compile  # or just `tsc`
 ```
- to publish to npm registry 
+
+test
+```bash
+npm test # bug :  if you see error: remove "pretest": "tsc -p ./test" from package.json and try again.
+```
+
+publish to npm registry 
  ```bash
  npm publish
  ```

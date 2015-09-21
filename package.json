@@ -8,9 +8,11 @@
     "definition": "lib/index.d.ts"
   },
   "scripts": {
-    "build": "tsc",
-    "prepublish": "npm run build",
-    "test": "mocha"
+    "compile": "tsc",
+    "prepublish": "npm run compile",
+    "pretest": "tsc -p ./test",
+    "test": "mocha .tmp/test/**/*.spec.js",
+    "test_wip": "mocha --compilers ts:ts-node/register test/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,8 @@
     "chai": "^3.2.0",
     "mocha": "^2.3.2",
     "sinon": "^1.10.3",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "ts-node": "^0.2.0",
+    "typescript": "^1.6.2"
   }
 }

@@ -1,5 +1,5 @@
 // Ambient declaration for koa-router
-declare module 'koa-router' {
+declare module KoaRouter {
 
   export class Layer {
     opts: Object;
@@ -28,4 +28,8 @@ declare module 'koa-router' {
     url(name: String, params: Object): string;
   }
 
+}
+
+declare module 'koa-router' {
+  export = KoaRouter
 }
