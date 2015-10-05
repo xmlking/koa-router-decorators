@@ -1,6 +1,8 @@
 import * as utils from './utils';
 // import Router from 'koa-router';
-import Router = require('koa-router'); // FIXME: we still need old syntax for loading ES5 modules
+// import Router = require('koa-router');
+// import Router = require('koa-router');
+let Router = require('koa-router');
 
 export enum HttpMethod {
   HEAD,

@@ -1,0 +1,2 @@
+--compilers ts:ts-node/register test/**/*.spec.ts
+--timeout 5000
